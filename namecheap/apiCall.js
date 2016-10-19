@@ -33,7 +33,7 @@
         function promiseExecutor(resolve, reject) {
             async.waterfall([
                 function (callback) {
-                    request(requestUrl, function (error, response, body) {
+                    request({url: requestUrl, proxy: config.getProxy()}, function (error, response, body) {
                         if (error && !body) {
                             return callback(error);
                         }
